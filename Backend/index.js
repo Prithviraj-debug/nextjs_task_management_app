@@ -10,7 +10,7 @@ app.use('/api/v1/tasks', postTask)
 
 app.get('/', async (req, res) => {
     try {
-        const response = await fetch(`http://localhost:3001/tasks`);
+        const response = await fetch(`http://127.0.0.1:3001/tasks`);
         const tasks = await response.json();
         res.send(tasks)
         return tasks; 
