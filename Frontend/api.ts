@@ -1,6 +1,6 @@
 import { ITask } from "./types/tasks.types";
 
-const baseUrl = 'http://localhost:8080/api/v1'
+const baseUrl = 'https://task-management-jxzy.onrender.com/api/v1/'
 
 export const getAllTasks = async (): Promise<ITask[]> => {
     const res = await fetch(`${baseUrl}/tasks`, {cache: "no-store"});

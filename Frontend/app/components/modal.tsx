@@ -14,7 +14,7 @@ const Modal: React.FC<ModalProps> = ({ modalOpen, setModalOpen }) => {
   const [newTaskValue, setNewTaskValue] = useState<string>('');
 
   const postTask = async (task: ITask): Promise<ITask> => {
-    const res = await fetch(`http://localhost:3001/tasks`, {
+    const res = await fetch(`https://task-management-jxzy.onrender.com/api/v1/tasks`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
