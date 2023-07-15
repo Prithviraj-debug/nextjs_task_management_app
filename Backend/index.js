@@ -1,7 +1,7 @@
 import express from 'express';
-
 import getTasks from './routes/getTasks.js';
 import postTask from './routes/postTask.js';
+import fetch from 'node-fetch';
 
 const app = express();
 
@@ -9,7 +9,14 @@ app.use('/api/v1/tasks', getTasks)
 app.use('/api/v1/tasks', postTask)
 
 app.get('/', async (req, res) => {
-    res.send("helooodww..")
+    try {
+        const response = await fetch(`http://localhost:3001/tasks`);
+        const tasks = await response.json();
+        res.send(tasks)
+        return tasks; 
+    } catch (error) {
+        console.log(error)
+    }
 });
 
 
